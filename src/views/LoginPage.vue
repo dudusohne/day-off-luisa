@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'HomeView',
+  name: 'LoginPage',
   data: function () {
     return {
       design: {
@@ -15,18 +15,20 @@ export default {
         contact: {
           email: '',
           password: '',
-        },        
+        },
       },
       config: {
+        responsive: [
+          { page: "DesktopLayout", types: ["desktop", "tablet"] },
+          { page: "MobileLayout", types: ["mobile"] },
+        ]
       }
     }
   },
   methods: {
-    async buttonClick() {
-      const email = this.viewModel.contact.email
-      const password = this.viewModel.contact.password
+    buttonClick() {
+      const { email, password } = this.viewModel.contact
       console.log(email, password)
-      console.log('button working')
     },
     emailOnChange() {
       console.log('email changing')

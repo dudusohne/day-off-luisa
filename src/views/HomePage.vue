@@ -12,7 +12,6 @@ export default {
         figmaAccessKey: "figd_Pue4tzakacr6Xo2HD6MwDIPSmW9DJ1gIkaoK_UTw"
       },
       viewModel: {
-
       },
       config: {
         responsive: [

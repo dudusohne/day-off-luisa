@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.35.6",
     "luisa-vue": "^3.0.25",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"

@@ -12,12 +12,12 @@ const router = createRouter({
       component: LoginPage,
     },
     {
-      path: "/:HomePage.html",
+      path: "/home",
       name: "home",
       component: HomePage,
     },
     {
-      path: "/:ColabPage.html",
+      path: "/colab",
       name: "colab",
       component: ColabPage,
     },

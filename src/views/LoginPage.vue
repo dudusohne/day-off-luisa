@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { supabase } from '../supabase'
 export default {
   name: 'LoginPage',
   data: function () {
@@ -22,14 +23,34 @@ export default {
           { page: "DesktopLayout", types: ["desktop", "tablet"] },
           { page: "MobileLayout", types: ["mobile"] },
         ]
-      }
+      },
+      loading: false
     }
   },
   methods: {
     buttonClick() {
       const { email, password } = this.viewModel.contact
       console.log(email, password)
-      return 'HomePage'
+
+      this.$router.push('/home')
+
+      const handleLogin = async () => {
+        try {
+          this.loading = true
+          const { error } = await supabase.auth.signIn({ email: email.value })
+          if (error) throw error
+          alert('Check your email for the login link!')
+        } catch (error) {
+          alert(error.error_description || error.message)
+        } finally {
+          this.loading = false
+        }
+      }
+
+      return {
+        email,
+        handleLogin,
+      }
     },
     emailOnChange() {
       console.log('email changing')

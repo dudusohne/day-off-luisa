@@ -8,14 +8,11 @@ export default {
   data: function () {
     return {
       design: {
-        figmaFile: "b2o1iBDJakdeeD75Sg52wH",
+        figmaFile: "t34WSshzksOO40kYteipaZ",
         figmaAccessKey: "figd_Pue4tzakacr6Xo2HD6MwDIPSmW9DJ1gIkaoK_UTw"
       },
       viewModel: {
-        contact: {
-          email: '',
-          password: '',
-        },
+
       },
       config: {
         responsive: [
@@ -25,16 +22,5 @@ export default {
       }
     }
   },
-  methods: {
-    buttonClick() {
-      const { email, password } = this.viewModel.contact
-      console.log(email, password)
-      console.log('button working')
-      return 'LoginPage.vue'
-    },
-    emailOnChange() {
-      console.log('email changing')
-    }
-  }
 }
 </script>

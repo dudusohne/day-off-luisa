@@ -24,37 +24,19 @@ export default {
           { page: "MobileLayout", types: ["mobile"] },
         ]
       },
-      loading: false
     }
   },
   methods: {
     buttonClick() {
       const { email, password } = this.viewModel.contact
+      //handleLogic logic
 
-      const handleLogin = async () => {
-        try {
-          this.loading = true
-          console.log(email)
-          const { error } = await supabase.auth.signIn({ email })
-          if (error) throw error
-          alert('Check your email for the login link!')
-        } catch (error) {
-          alert(error.error_description || error.message)
-        } finally {
-          this.loading = false
-          console.log('done')
-          this.$router.push('/home')
-        }
-      }
-
-      handleLogin()
+      this.$router.push('/home')
     },
 
     forgotPassword() {
+      //forgotPassword logic
       console.log('forgot password')
-    },
-    emailOnChange() {
-      console.log('email changing')
     }
   }
 }

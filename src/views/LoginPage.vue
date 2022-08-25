@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { supabase } from '../supabase'
+import { supabase } from '@/services/supabase'
 export default {
   name: 'LoginPage',
   data: function () {
@@ -30,27 +30,28 @@ export default {
   methods: {
     buttonClick() {
       const { email, password } = this.viewModel.contact
-      console.log(email, password)
-
-      this.$router.push('/home')
 
       const handleLogin = async () => {
         try {
           this.loading = true
-          const { error } = await supabase.auth.signIn({ email: email.value })
+          console.log(email)
+          const { error } = await supabase.auth.signIn({ email })
           if (error) throw error
           alert('Check your email for the login link!')
         } catch (error) {
           alert(error.error_description || error.message)
         } finally {
           this.loading = false
+          console.log('done')
+          this.$router.push('/home')
         }
       }
 
-      return {
-        email,
-        handleLogin,
-      }
+      handleLogin()
+    },
+
+    forgotPassword() {
+      console.log('forgot password')
     },
     emailOnChange() {
       console.log('email changing')

@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { ContainerOff } from '@/src/components/ContainerOff.vue'
 export default {
   name: 'HomePage',
   data: function () {

@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { supabase } from '@/services/supabase'
 export default {
   name: 'ColabPage',
   data: function () {
@@ -20,12 +21,13 @@ export default {
           name: '',
           lastname: '',
           birth: '',
-          cep: '',
-          address: '',
-          neiborhood: '',
+          zip: '',
+          street: '',
+          number: '',
+          district: '',
           city: '',
-          uf: '',
-          num: '',
+          state: '',
+          country: '',
           kids: '',
           kidsname: '',
           civilstate: ''
@@ -40,10 +42,37 @@ export default {
     }
   },
   methods: {
-    sendColab() {
-      this.viewModel.colab
-      console.log('asdasd', this.viewModel.colab)
-    }
+    async sendColab() {
+      const user = this.viewModel.colab
+      try {
+        
+        await supabase.auth.signUp(
+          {
+            email: user.email,
+            password: user.password,
+          }
+        )
+
+        await supabase
+          .from('user')
+          .insert([{
+            first_name: user.name,
+            last_name: user.lastname,
+            cpf: user.cpf,
+            email: user.email,
+            password: user.password,
+            zip: user.zip,
+            street: user.street,
+            number: user.number,
+            district: user.district,
+            city: user.city,
+            state: user.state,
+            country: user.country,
+          }])
+      } catch (e) {
+        console.log(e)
+      }
+    },
   }
 }
 </script>

@@ -13,8 +13,10 @@
   "dependencies": {
     "@supabase/supabase-js": "^1.35.6",
     "luisa-vue": "^3.0.25",
+    "scss": "^0.2.4",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.3"
+    "vue-router": "^4.1.3",
+    "vue3-storage": "^0.1.11"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

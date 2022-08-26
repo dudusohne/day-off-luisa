@@ -27,11 +27,23 @@ export default {
     }
   },
   methods: {
-    buttonClick() {
+    async buttonClick() {
       const { email, password } = this.viewModel.contact
-      //handleLogic logic
 
-      this.$router.push('/home')
+      try {
+        const { user, session } = await supabase.auth.signIn({
+          email,
+          password,
+        })
+
+        this.$storage.setStorageSync("session", session);
+
+        if (user) {
+          this.$router.push('/home')
+        }
+      } catch (e) {
+        console.log(e)
+      }
     },
 
     forgotPassword() {

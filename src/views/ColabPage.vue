@@ -14,13 +14,12 @@ export default {
       },
       viewModel: {
         colab: {
+          name: '',
+          lastname: '',
           cpf: '',
           email: '',
           senha: '',
           password: '',
-          name: '',
-          lastname: '',
-          birth: '',
           zip: '',
           street: '',
           number: '',
@@ -28,6 +27,7 @@ export default {
           city: '',
           state: '',
           country: '',
+          birth: '',
           kids: '',
           kidsname: '',
           civilstate: ''

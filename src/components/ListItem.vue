@@ -1,33 +1,34 @@
 <template>
     <div class="list-item">
+        <span style="align-self: center; font-weight: bold;">{{ props.id }}</span>
         <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 18px">name</span>
-            <span>lastname</span>
+            <span style="font-weight: bold; font-size: 18px">{{ props.name }}</span>
+            <span>{{ props.lastname }}</span>
         </div>
         <div
             style="display: flex; flex-direction: column; margin-left: 5px; border-left: 1px solid #333;padding-left: 5px;">
-            <span>123456</span>
-            <span>lastname@asd.com</span>
+            <span>{{ props.cpf }}</span>
+            <span>{{ props.email }}</span>
         </div>
         <div
             style="display: flex; flex-direction: column; margin-left: 5px; border-left: 1px solid #333;padding-left: 5px;">
-            <span>password</span>
-            <span>zip</span>
+            <span>{{ props.password }}</span>
+            <span>{{ props.zip }}</span>
         </div>
         <div
             style="display: flex; flex-direction: column; margin-left: 5px; border-left: 1px solid #333;padding-left: 5px;">
-            <span>street</span>
-            <span>number</span>
+            <span>{{ props.street }}</span>
+            <span>{{ props.number }}</span>
         </div>
         <div
             style="display: flex; flex-direction: column; margin-left: 5px; border-left: 1px solid #333;padding-left: 5px;">
-            <span>district</span>
-            <span>city</span>
+            <span>{{ props.district }}</span>
+            <span>{{ props.city }}</span>
         </div>
         <div
             style="display: flex; flex-direction: column; margin-left: 5px; border-left: 1px solid #333;padding-left: 5px;">
-            <span>state</span>
-            <span>country</span>
+            <span>{{ props.state }}</span>
+            <span>{{ props.country }}</span>
         </div>
         <div style="display: flex; flex-direction: column; align-items: center;">
             <button>EXCLUIR</button>
@@ -36,7 +37,22 @@
 </template>
 
 <script setup lang="ts">
-
+const props = defineProps({
+    id: Number,
+    name: String,
+    lastname: String,
+    cpf: String,
+    email: String,
+    senha: String,
+    password: String,
+    zip: String,
+    street: String,
+    number: String,
+    district: String,
+    city: String,
+    state: String,
+    country: String,
+})
 </script>
 
 <style>
@@ -47,13 +63,14 @@
 
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgb(224, 224, 224) 0%, rgba(136, 136, 136, 0.425) 35%, rgb(185, 185, 185) 100%);
-    
+
     border-radius: 12px;
 
     margin-top: 1rem;
     justify-content: space-between;
 }
-button { 
+
+button {
     height: 100%;
     width: 100%;
     background-color: rgb(209, 69, 44);
@@ -63,6 +80,7 @@ button {
 
     font-weight: bold;
 }
+
 button:hover {
     background-color: black;
     color: white;

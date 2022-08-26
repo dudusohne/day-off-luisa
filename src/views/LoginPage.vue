@@ -4,6 +4,7 @@
 
 <script>
 import { supabase } from '@/services/supabase'
+
 export default {
   name: 'LoginPage',
   data: function () {

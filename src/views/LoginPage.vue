@@ -35,6 +35,10 @@ export default {
         const { user, session } = await supabase.auth.signIn({
           email,
           password,
+        }).then(response => {
+          if (response.error.status == 400) {
+            alert('E-mail ou senha incorretos!')
+          }
         })
 
         this.$storage.setStorageSync("session", session);
@@ -47,9 +51,19 @@ export default {
       }
     },
 
-    forgotPassword() {
+    async forgotPassword() {
+      this.$router.push('/forgot')
+      const { email } = this.viewModel.contact
       //forgotPassword logic
       console.log('forgot password')
+      try {
+        const { error } = await supabase.auth.api.resetPasswordForEmail(
+          email
+        )
+        console.log('error::', error)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }

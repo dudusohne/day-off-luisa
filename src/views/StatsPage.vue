@@ -47,6 +47,9 @@ async function deleteUser(id: number) {
 .stats-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     width: 100%;
 }
 

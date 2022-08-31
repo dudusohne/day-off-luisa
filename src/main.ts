@@ -7,8 +7,6 @@ import luisa from "luisa-vue";
 import Vue3Storage from "vue3-storage";
 import VCalendar from "v-calendar";
 
-import "./assets/main.css";
-
 const app = createApp(App);
 app.use(VCalendar, {});
 app.use(router);

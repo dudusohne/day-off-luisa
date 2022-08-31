@@ -43,7 +43,7 @@ async function deleteUser(id: number) {
     }
 }
 </script>
-<style>
+<style lang="scss">
 .stats-page {
     display: flex;
     flex-direction: column;

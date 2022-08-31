@@ -1,41 +1,41 @@
 <template>
-    <div class="forgot">
-        <span>DIGITE SEU E-MAIL ABAIXO:</span>
-        <input type="text" v-model="email" />
-        <button @click="forgotPassword()">ENVIAR</button>
+    <div class="recovery-pwd">
+        <span>DIGITE SUA NOVA SENHA ABAIXO:</span>
+        <input type="text" v-model="password" />
+        <button @click="recoverPassword()">ENVIAR</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
 import { supabase } from '@/services/supabase';
 
 const router = useRouter()
+const route = useRoute()
 
-const email = ref()
+const password = ref<string>()
+const accessToken = ref<any>(route.params.id)
 
-async function forgotPassword() {
+
+async function recoverPassword() {
+    console.log(route.params)
     try {
-        supabase.auth.api.resetPasswordForEmail(
-            email.value
-        ).then(response => {
-            console.log(response.error)
-            if (response.error) {
-                alert('Seu e-mail esta incorreto ou não existe!')
-            }
+        await supabase.auth.api.updateUser(accessToken.value, {
+            password: password.value,
         })
     } catch (e) {
-        alert('Email incorreto!')
+        alert('Senha incorreta!')
         console.log(e)
     } finally {
+        alert('SENHA ALTERADA')
         router.push('/')
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.forgot {
+.recovery-pwd {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -13,6 +13,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^1.35.6",
     "luisa-vue": "^3.0.25",
+    "sass": "^1.54.7",
     "scss": "^0.2.4",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3",

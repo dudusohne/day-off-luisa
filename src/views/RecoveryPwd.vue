@@ -15,10 +15,10 @@ const router = useRouter()
 const route = useRoute()
 
 const password = ref<string>()
-const accessToken = ref<any>(route.params.id)
+const accessToken = ref<any>(route.query.token)
 
 async function recoverPassword() {
-    console.log(route.params)
+    console.log(route.query.token)
     try {
         await supabase.auth.api.updateUser(accessToken.value, {
             password: password.value,

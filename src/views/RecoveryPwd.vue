@@ -17,7 +17,6 @@ const route = useRoute()
 const password = ref<string>()
 const accessToken = ref<any>(route.params.id)
 
-
 async function recoverPassword() {
     console.log(route.params)
     try {

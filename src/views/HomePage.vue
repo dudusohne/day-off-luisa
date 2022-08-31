@@ -7,7 +7,7 @@
       <button @click="saveDayOff()">SALVAR</button>
     </div>
     <div>
-      <input type="checkbox" v-model="a" />
+      <input type="checkbox" v-model="questionOne" />
     </div>
   </div>
 </template>
@@ -19,7 +19,10 @@ import { ref } from 'vue'
 const dateSelected = ref<any>()
 const dateFormated = ref()
 
-
+const questionOne = ref()
+const questionTwo = ref()
+const questionThree = ref()
+const questionFour = ref()
 
 function handleDateSelected() {
   const date: any = new Date(dateSelected.value)

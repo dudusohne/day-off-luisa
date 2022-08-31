@@ -11,5 +11,8 @@
       "path": "./tsconfig.vitest.json"
     }
   ],
-  "experimentalDisableTemplateSupport": true
+  "experimentalDisableTemplateSupport": true,
+  "compilerOptions": {
+    "allowJs": true
+  }
 }

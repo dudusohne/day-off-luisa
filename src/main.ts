@@ -1,15 +1,16 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import luisa from 'luisa-vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import luisa from "luisa-vue";
 import Vue3Storage from "vue3-storage";
+import VCalendar from "v-calendar";
 
-import './assets/main.css'
+import "./assets/main.css";
 
-const app = createApp(App)
+const app = createApp(App);
+app.use(VCalendar, {});
+app.use(router);
+app.use(Vue3Storage);
+app.use(luisa);
 
-app.use(router)
-app.use(Vue3Storage)
-app.use(luisa)
-
-app.mount('#app')
+app.mount("#app");

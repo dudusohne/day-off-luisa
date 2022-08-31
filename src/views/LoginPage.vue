@@ -29,23 +29,31 @@ export default {
   },
   methods: {
     async buttonClick() {
+      console.log('login')
+
       const { email, password } = this.viewModel.contact
 
       try {
-        const { user, session } = await supabase.auth.signIn({
+        supabase.auth.signIn({
           email,
           password,
         }).then(response => {
-          if (response.error.status == 400) {
+          console.log(response)
+          
+          if (response.error) {
             alert('E-mail ou senha incorretos!')
+          }
+
+          this.$storage.setStorageSync("session", response.session);
+
+          if (response.user) {
+            this.$router.push('/home')
           }
         })
 
-        this.$storage.setStorageSync("session", session);
 
-        if (user) {
-          this.$router.push('/home')
-        }
+
+
       } catch (e) {
         console.log(e)
       }
@@ -55,7 +63,6 @@ export default {
       this.$router.push('/forgot')
       const { email } = this.viewModel.contact
       //forgotPassword logic
-      console.log('forgot password')
       try {
         const { error } = await supabase.auth.api.resetPasswordForEmail(
           email

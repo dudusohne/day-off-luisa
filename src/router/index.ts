@@ -43,4 +43,16 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach((to) => {
+
+  if (
+    to.hash.includes('type=recovery') &&
+    to.name !== 'forgot'
+  ) {
+    const accessToken = to.hash.split('&')[0]
+    const token = accessToken.replace('#access_token=', '')
+    return { name: 'recoverypwd', query: { token } }
+  }
+})
+
 export default router;

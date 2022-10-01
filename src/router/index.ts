@@ -44,7 +44,6 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-
   if (
     to.hash.includes('type=recovery') &&
     to.name !== 'forgot'
